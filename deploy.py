@@ -65,7 +65,7 @@ signed_txn = w3.eth.account.sign_transaction(transaction, private_key=private_ke
 print("Deploying contract...")
 tx_hash = w3.eth.send_raw_transaction(signed_txn.rawTransaction)
 tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
-print("Deployed")
+print("Deployed:)")
 
 simple_storage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
 
