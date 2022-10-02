@@ -6,6 +6,10 @@ import json
 from web3 import Web3
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 with open("./SimpleStorage.sol", "r") as file:
     simple_storage_file = file.read()
@@ -41,9 +45,8 @@ abi = compiled_sol["contracts"]["SimpleStorage.sol"]["SimpleStorage"]["abi"]
 
 w3 = Web3(Web3.HTTPProvider("HTTP://127.0.0.1:7545"))
 chain_id = 1337
-my_address = "0x35D53Dd888Fc7A6734B6224837107d06bF6b116F"
+my_address = "0x58b8D1cc36d311847599B9DE9903dc72ddC5c0C8"
 private_key = os.getenv("TWILIO_ACCOUNT_SID")
-# 0x585083f01472ef21ebaa42cc6f82d7ff9296f83655098aed2e8d7c29c9dc6ef9
 SimpleStorage = w3.eth.contract(abi=abi, bytecode=bytecode)
 
 nonce = w3.eth.getTransactionCount(my_address)
